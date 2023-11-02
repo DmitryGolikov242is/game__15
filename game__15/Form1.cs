@@ -19,7 +19,7 @@ namespace game15
         int W = 50;
         public static List<int> arr = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 0 };
         public static Button[] btns= new Button[16];
-        Random random = new Random();
+        
 
         public  Form1()
         {
@@ -52,22 +52,15 @@ namespace game15
             this.Invalidate();
 
         }
-       
 
         private void button17_Click(object sender, EventArgs e)
         {
-            this.BackColor = Color.LightGray;
-            for (int i = 15; i >= 1; i--)
-            {
-                int j = random.Next(i + 1);
-                var temp = arr[j];
-                arr[j] = arr[i];
-                arr[i] = temp;
-            }
-
+            Class2.renew();
             Class2.visual();
             button17.Focus();
         }
+
+        
         public void render()
         {
             button17.Focus();

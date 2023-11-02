@@ -9,15 +9,26 @@ using System.Windows.Forms.VisualStyles;
 
 namespace game15
 {
-    internal class Class1
+    public class Class1
     {
-        public static  void button_Click(object sender, EventArgs e)
+        public static void button_Click(object sender, EventArgs e)
+        {
+            move(((Button)sender).Text);
+            Class2.visual();
+            Program.Win.render();
+            if (Class2.check())
+            {
+                MessageBox.Show("Игра закончена!", "ПОБЕДА!");
+            };
+        }
+
+        public static  void move(String btn)
         {
             int pos;
-            Button button = (Button)sender;
+
             for (pos = 0; pos < 15; pos++)
             {
-                if (Form1.arr[pos] == Convert.ToInt32(button.Text)) break;
+                if (Form1.arr[pos] == Convert.ToInt32(btn)) break;
             }
             int i = pos / 4, j = pos % 4;
             if (i == 0)
@@ -177,9 +188,7 @@ namespace game15
                 }
             }
 
-            Class2.visual();
-            Program.Win.render();
-            Class2.check();
+            
         }
     }
 }

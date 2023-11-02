@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace game15
 {
-    internal static class Program
+    public static class Program
     {
         public static  Form1 Win;
         /// <summary>

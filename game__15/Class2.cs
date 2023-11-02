@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace game15
 {
-    internal class Class2
+    public class Class2
     {
         public static void visual()
         {
@@ -33,7 +33,7 @@ namespace game15
             //button17.Focus();
         }
 
-        public static void check()
+        public static bool check()
         {
             if (Form1.arr[15] == 0)
             {
@@ -44,8 +44,22 @@ namespace game15
                 }
                 if (flag == 0)
                 {
-                    MessageBox.Show("Игра закончена!", "ПОБЕДА!");
+                    return true;
                 }
+                else return false;
+            }
+            return false;
+        }
+        public static  void renew()
+        {
+            Random random = new Random();
+            //Program.Win.BackColor = Color.LightGray;
+            for (int i = 15; i >= 1; i--)
+            {
+                int j = random.Next(i + 1);
+                var temp = Form1.arr[j];
+                Form1.arr[j] = Form1.arr[i];
+                Form1.arr[i] = temp;
             }
         }
 
